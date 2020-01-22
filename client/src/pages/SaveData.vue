@@ -45,28 +45,22 @@ export default {
   },
   methods: {
     ...mapActions('myData', ['addMyDataItem']),
-
-    // submitForm () {
-    //   console.log('submit form')
-    // //   this.myObject = Object.assign({}, this.myObject, { code: '111', name: 'name', description: 'xxx', status: 'status' })
-    // //   this.addMyDataItem(this.myObject)
-    //   this.addMyDataItem(this.myDataItem)
-    // }
-
     async submitForm () {
       try {
         const response = await saveDataService.saveData(this.myDataItem)
-        console.log(response.data)
         if (response.data) {
           this.addMyDataItem(this.myDataItem)
-          console.log('Data added')
         }
       } catch (error) {
         const errorMessage = error.response.data.error
         console.log(errorMessage)
       }
     }
-
+    // submitForm () {
+    // //   this.myObject = Object.assign({}, this.myObject, { code: '111', name: 'name', description: 'xxx', status: 'status' })
+    // //   this.addMyDataItem(this.myObject)
+    //   this.addMyDataItem(this.myDataItem)
+    // }
   }
 }
 </script>

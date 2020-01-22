@@ -24,7 +24,6 @@ export default {
     ...mapActions('myData', ['loadMyData'])
   },
   mounted () {
-    console.log('mounted')
     this.loadMyData()
   },
   computed: {

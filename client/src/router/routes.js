@@ -1,3 +1,4 @@
+// import storeAuth from '../store/store-auth'
 
 const routes = [
   {
@@ -6,7 +7,8 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue') },
       { path: '/saveData', component: () => import('pages/SaveData.vue') },
-      { path: '/search', component: () => import('pages/Search.vue') }
+      { path: '/search', component: () => import('pages/Search.vue') },
+      { path: '/auth', component: () => import('pages/Auth.vue') }
     ]
   }
 ]

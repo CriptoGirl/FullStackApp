@@ -15,11 +15,21 @@
           My Full Stack App
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn v-if='!loggedIn'
+          flat dense
+          to='/auth'
+          label="Login"
+          icon-right="account_circle"
+        />
+
+        <q-btn v-if='loggedIn'
+          @click='logoutUser'
+          flat dense label="Log out" icon-right="account_circle" />
+
       </q-toolbar>
     </q-header>
 
-    <q-drawer
+    <q-drawer  v-if='loggedIn'
       v-model="leftDrawerOpen"
       show-if-above
       bordered
@@ -124,13 +134,19 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'MyLayout',
-
+  computed: {
+    ...mapState('auth', ['loggedIn'])
+  },
   data () {
     return {
       leftDrawerOpen: false
     }
+  },
+  methods: {
+    ...mapActions('auth', ['logoutUser'])
   }
 }
 </script>
