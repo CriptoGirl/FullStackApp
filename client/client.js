@@ -10,3 +10,4 @@ app.use(history());
 app.use(serveStatic(__dirname + '/dist/spa'));
 app.listen(port);
 console.log('Server is listening on port: ', port)
+console.log('Base URL: ', process.env.FSA_SERVER_URL)

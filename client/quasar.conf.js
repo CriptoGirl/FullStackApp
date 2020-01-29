@@ -56,6 +56,15 @@ module.exports = function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+      // ns
+      env: ctx.dev
+        ? { // so on dev we'll have
+          SERVER_URL: JSON.stringify(process.env.FSA_SERVER_URL)
+        }
+        : { // and on build (production): NSAPI: JSON.stringify('https://prod.'+ process.env.FSA_SERVER_URL)
+          SERVER_URL: JSON.stringify(process.env.FSA_SERVER_URL)
+        },
+      // ns
       scopeHoisting: true,
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       showProgress: true,
