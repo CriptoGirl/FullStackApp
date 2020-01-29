@@ -59,7 +59,6 @@ module.exports = function (ctx) {
       // ns
       env: ctx.dev
         ? { // so on dev we'll have
-          // SERVER_URL: JSON.stringify(process.env.FSA_SERVER_URL)
           SERVER_URL: JSON.stringify(`http://localhost:8081/`)
         }
         : { // and on build (production): NSAPI: JSON.stringify('https://prod.'+ process.env.FSA_SERVER_URL)
