@@ -13,6 +13,7 @@ export default () => {
   console.log('SERVER_URL: ', process.env.SERVER_URL)
   return axios.create({
     baseURL: process.env.SERVER_URL,
+    // baseURL: `http://localhost:8081/`,
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${storeAuth.state.authToken}`
